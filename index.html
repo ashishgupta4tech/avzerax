@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Google Maps, websites &amp; 24/7 WhatsApp AI | AVZERA Digital Solutions</title>
+<meta name="description" content="AVZERA Digital Solutions is a founder-led studio in Raipur building Google Maps visibility, fast lightweight websites and 24/7 WhatsApp and voice AI for local businesses across India. Free audit. Staging in 24–48 hours.">
+<meta name="theme-color" content="#d9dadd">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AVZERA Digital Solutions">
+<meta property="og:title" content="AVZERA — Local business, built to be found.">
+<meta property="og:description" content="Google Maps, fast lightweight websites and 24/7 WhatsApp/voice AI for local businesses. Founder-led from Raipur, delivering across India.">
+<meta property="og:url" content="https://avzerax.vercel.app/">
+<meta property="og:image" content="https://avzerax.vercel.app/brand_assets/avzera_whatsapp_dp_1000.png">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="AVZERA Digital Solutions">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AVZERA — Local business, built to be found.">
+<meta name="twitter:description" content="Google Maps, fast lightweight websites and 24/7 WhatsApp/voice AI. Founder-led from Raipur.">
+<meta name="twitter:url" content="https://avzerax.vercel.app/">
+<meta name="twitter:image" content="https://avzerax.vercel.app/brand_assets/avzera_whatsapp_dp_1000.png">
+<link rel="canonical" href="https://avzerax.vercel.app/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "AVZERA Digital Solutions",
+  "url": "https://avzerax.vercel.app/",
+  "description": "Founder-led digital studio in Raipur building Google Maps visibility, fast lightweight websites and 24/7 WhatsApp and voice AI for local businesses across India.",
+  "telephone": "+91-7898332744",
+  "email": "hello@avzera.com",
+  "founder": {
+    "@type": "Person",
+    "name": "Vikas Vivan"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Avantibai Chowk",
+    "addressLocality": "Bhilai",
+    "addressRegion": "Chhattisgarh",
+    "addressCountry": "IN"
+  },
+  "areaServed": ["Bhilai", "Raipur", "Durg", "Chhattisgarh", "India"],
+  "priceRange": "₹9,999–₹24,999+",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "UPI, NEFT, RTGS, Net Banking",
+  "knowsLanguage": ["en", "hi"]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="assets/favicon-theme.svg?v=20261118-1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=20261119-2">
+</head>
+<body class="locked">
+
+<!-- ============================================================ loader -->
+<div id="loader" role="dialog" aria-modal="true" aria-label="Enter the AVZERA experience">
+  <div class="loader-inner">
+    <img class="loader-mark" src="assets/avzera-wordmark-theme.svg" alt="AVZERA Digital Solutions" width="357" height="56">
+    <small class="loader-tag">Digital Solutions</small>
+    <b id="pct">000</b>
+    <button id="enter" type="button" tabindex="0">
+      <i aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></i>
+      <span>Click to enter</span>
+    </button>
+    <small id="enter-note">Sound on</small>
+  </div>
+</div>
+
+<!-- ============================================================ ambient canvas -->
+<canvas id="dust" aria-hidden="true"></canvas>
+<div id="topfade" aria-hidden="true"></div>
+
+<!-- ============================================================ 3d studio -->
+<div id="scene" aria-hidden="true">
+  <canvas id="gl"></canvas>
+  <div class="room">
+    <div class="room-wall"></div>
+    <div class="room-floor"></div>
+    <div class="room-light"></div>
+    <div class="room-shade"></div>
+  </div>
+
+  <div class="obj-stage" id="objStage">
+
+    <!-- 01 · brain -->
+    <figure class="obj obj-hero active" data-obj="hero">
+      <div class="plinth"><i></i><span></span></div>
+      <div class="brain-wrap">
+        <svg class="brain" viewBox="0 0 640 560" role="img" aria-label="A dark brain with gold seams">
+          <defs>
+            <radialGradient id="brainBody" cx="38%" cy="30%" r="78%">
+              <stop offset="0" stop-color="#4a4844"/>
+              <stop offset=".34" stop-color="#262523"/>
+              <stop offset=".72" stop-color="#131313"/>
+              <stop offset="1" stop-color="#050505"/>
+            </radialGradient>
+            <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
+              <stop offset=".5" stop-color="#d6a656" stop-opacity=".28"/>
+              <stop offset="1" stop-color="#d6a656" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="goldSeam" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f8e1ae"/>
+              <stop offset=".5" stop-color="#d6a656"/>
+              <stop offset="1" stop-color="#8f5f1e"/>
+            </linearGradient>
+            <radialGradient id="spec" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#fff" stop-opacity=".5"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="3.2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="bigSoft" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="16"/>
+            </filter>
+            <clipPath id="brainClip">
+              <path d="M320 74C377 44 458 55 511 98C570 127 604 190 596 253C592 302 617 343 593 390C574 429 527 449 484 454C447 491 397 509 346 497C332 494 326 486 320 478C314 486 308 494 294 497C243 509 193 491 156 454C113 449 66 429 47 390C23 343 48 302 44 253C36 190 70 127 129 98C182 55 263 44 320 74Z"/>
+            </clipPath>
+            <clipPath id="cereClip">
+              <ellipse cx="405" cy="448" rx="96" ry="61"/>
+            </clipPath>
+          </defs>
+
+          <circle cx="320" cy="292" r="276" fill="url(#brainGlow)"/>
+          <ellipse cx="320" cy="520" rx="206" ry="20" fill="rgba(42,33,20,.16)" filter="url(#bigSoft)"/>
+
+          <!-- cerebellum + stem -->
+          <path d="M317 456C310 500 318 530 335 542C347 550 359 540 356 530C345 510 348 482 357 458Z" fill="#101010"/>
+          <ellipse cx="405" cy="452" rx="95" ry="59" fill="url(#brainBody)"/>
+          <g clip-path="url(#cereClip)" opacity=".9">
+            <path d="M318 420C355 440 420 440 500 414" fill="none" stroke="#333" stroke-width="7" stroke-linecap="round"/>
+            <path d="M312 438C352 459 424 461 504 432" fill="none" stroke="#3a3a3a" stroke-width="6" stroke-linecap="round"/>
+            <path d="M316 457C358 479 429 480 505 450" fill="none" stroke="#2b2b2b" stroke-width="7" stroke-linecap="round"/>
+            <path d="M326 477C368 497 430 496 496 468" fill="none" stroke="#3a3a3a" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M344 494C380 508 428 506 478 487" fill="none" stroke="#292929" stroke-width="5" stroke-linecap="round"/>
+          </g>
+
+          <!-- main body -->
+          <g clip-path="url(#brainClip)">
+            <path d="M320 74C377 44 458 55 511 98C570 127 604 190 596 253C592 302 617 343 593 390C574 429 527 449 484 454C447 491 397 509 346 497C332 494 326 486 320 478C314 486 308 494 294 497C243 509 193 491 156 454C113 449 66 429 47 390C23 343 48 302 44 253C36 190 70 127 129 98C182 55 263 44 320 74Z" fill="url(#brainBody)"/>
+            <g id="sulci"></g>
+            <g id="cracks"></g>
+            <path d="M320 84C312 158 330 238 316 318C306 382 318 438 320 476" fill="none" stroke="#050505" stroke-width="13" stroke-linecap="round"/>
+            <path d="M319 96C313 160 329 232 317 306C308 370 318 424 320 460" fill="none" stroke="url(#goldSeam)" stroke-width="2" stroke-linecap="round" opacity=".85" filter="url(#softGlow)"/>
+            <ellipse cx="236" cy="176" rx="132" ry="74" fill="url(#spec)" transform="rotate(-24 236 176)"/>
+            <ellipse cx="470" cy="330" rx="96" ry="52" fill="url(#spec)" opacity=".35" transform="rotate(28 470 330)"/>
+          </g>
+          <path d="M320 74C377 44 458 55 511 98C570 127 604 190 596 253C592 302 617 343 593 390C574 429 527 449 484 454C447 491 397 509 346 497C332 494 326 486 320 478C314 486 308 494 294 497C243 509 193 491 156 454C113 449 66 429 47 390C23 343 48 302 44 253C36 190 70 127 129 98C182 55 263 44 320 74Z" fill="none" stroke="#0a0a0a" stroke-width="2" opacity=".9"/>
+        </svg>
+        <div class="brain-gloss"></div>
+      </div>
+      <div class="floor-shadow brain-shadow"></div>
+    </figure>
+
+    <!-- 02 · website -->
+    <figure class="obj obj-website" data-obj="website">
+      <div class="laptop">
+        <div class="laptop-lid">
+          <div class="laptop-cam"></div>
+          <div class="site">
+            <div class="site-nav">
+              <b>YOUR<span>BRAND</span></b>
+              <nav><i>Services</i><i>About</i><i>Contact</i></nav>
+              <em>Book now</em>
+            </div>
+            <div class="site-body">
+              <div class="site-copy">
+                <small>SAMPLE SITE · BUILT BY AVZERA</small>
+                <h3>Found first.<br><em>Booked in 30 seconds.</em></h3>
+                <p>Mobile-first layout, one-tap WhatsApp and prices people can actually find.</p>
+                <span class="site-btn">Book an appointment <b>→</b></span>
+                <div class="site-proof"><i>✓</i><span>Sample layout · no invented reviews</span></div>
+              </div>
+              <div class="site-art">
+                <div class="site-orb"></div>
+                <div class="site-card">
+                  <small>NEXT AVAILABLE</small>
+                  <b>Today · 6:30 PM</b>
+                  <span>Sample slot · your services here</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base"><i></i></div>
+      </div>
+      <div class="floor-shadow"></div>
+    </figure>
+
+    <!-- 03 · google profile -->
+    <figure class="obj obj-google" data-obj="google">
+      <div class="pin-stack">
+        <div class="pin-rings"><i></i><i></i><i></i></div>
+        <svg class="pin" viewBox="0 0 120 160" aria-hidden="true">
+          <defs><linearGradient id="pinGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7dea8"/><stop offset=".55" stop-color="#d6a656"/><stop offset="1" stop-color="#996a24"/></linearGradient></defs>
+          <path d="M60 8c-28 0-50 22-50 50 0 38 50 94 50 94s50-56 50-94c0-28-22-50-50-50z" fill="url(#pinGold)" stroke="#8f5f1e" stroke-width="2"/>
+          <circle cx="60" cy="58" r="19" fill="#fff" opacity=".92"/>
+          <circle cx="60" cy="58" r="9" fill="#d6a656"/>
+        </svg>
+        <div class="pin-shadow"></div>
+      </div>
+      <div class="gbp-card">
+        <div class="gbp-map">
+          <div class="gbp-grid"></div>
+          <svg viewBox="0 0 120 160"><path d="M60 8c-28 0-50 22-50 50 0 38 50 94 50 94s50-56 50-94c0-28-22-50-50-50z"/><circle cx="60" cy="58" r="17"/></svg>
+        </div>
+        <div class="gbp-body">
+          <small>GOOGLE BUSINESS PROFILE · PREVIEW</small>
+          <h3>Your Business</h3>
+          <div class="stars"><b>PROFILE PREVIEW</b><span>sample, not a listing</span></div>
+          <div class="gbp-line"><i class="dot"></i>Hours complete · photos fresh</div>
+          <div class="gbp-line dim">Category · Services · Reviews answered</div>
+          <div class="gbp-actions"><span>Call</span><span>Directions</span><span>Website</span></div>
+        </div>
+        <span class="gbp-chip">PROFILE CHECK</span>
+      </div>
+      <div class="floor-shadow"></div>
+    </figure>
+
+    <!-- 04 · ai agents -->
+    <figure class="obj obj-ai" data-obj="ai">
+      <div class="ai-orb"><i></i><b></b></div>
+      <div class="ai-ring r1"></div>
+      <div class="ai-ring r2"></div>
+      <div class="ai-ring r3"></div>
+      <div class="agent-card a1"><small><em></em>REPLIES IN SECONDS</small><b>“Hi! Do you have a slot tomorrow?”</b><span>Answered · 10:42 PM</span></div>
+      <div class="agent-card a2"><small><em></em>NEVER MISSES A LEAD</small><b>Books the slot while you sleep</b><span>Calendar + WhatsApp updated</span></div>
+      <div class="agent-card a3"><small><em></em>WORKS ALL NIGHT</small><b>Sends prices, location and next steps</b><span>Handed to you with context</span></div>
+      <div class="floor-shadow"></div>
+    </figure>
+
+    <!-- 05 · work -->
+    <figure class="obj obj-work" data-obj="work">
+      <div class="work-stack">
+        <a class="work-card w1" href="https://vivanz-palace.vercel.app/" target="_blank" rel="noopener">
+          <div class="wc-bar"><i></i><i></i><i></i><span>vivanz-palace.vercel.app</span></div>
+          <img src="assets/work-vivanz.webp" alt="Live website for Hotel Vivanz Palace, Bhilai" width="1200" height="750" loading="lazy" decoding="async">
+          <div class="wc-tag"><b>Hotel Vivanz Palace</b><span>LIVE CLIENT</span></div>
+        </a>
+        <a class="work-card w2" href="https://speakmark.vercel.app/" target="_blank" rel="noopener">
+          <div class="wc-bar"><i></i><i></i><i></i><span>speakmark.vercel.app</span></div>
+          <img src="assets/work-speakmark.webp" alt="Live SpeakMark AI English coaching app" width="1200" height="750" loading="lazy" decoding="async">
+          <div class="wc-tag"><b>SpeakMark</b><span>LIVE PRODUCT</span></div>
+        </a>
+        <a class="work-card w3" href="https://liora-hotel-portfolio-demo.pages.dev/" target="_blank" rel="noopener">
+          <div class="wc-bar"><i></i><i></i><i></i><span>liora-hotel-portfolio-demo.pages.dev</span></div>
+          <img src="assets/work-liora.webp" alt="Liora House live hotel concept portfolio" width="1200" height="750" loading="lazy" decoding="async">
+          <div class="wc-tag"><b>Liora House</b><span>LIVE CONCEPT</span></div>
+        </a>
+      </div>
+      <div class="floor-shadow"></div>
+    </figure>
+
+    <!-- 06 · process -->
+    <figure class="obj obj-process" data-obj="process">
+      <ol class="steps">
+        <li style="--i:-2"><b>01</b><h3>Free audit</h3><p>Profile, site and WhatsApp, checked by hand.</p></li>
+        <li style="--i:-1"><b>02</b><h3>Clear scope</h3><p>What gets built, what it costs, when it ships.</p></li>
+        <li style="--i:0"><b>03</b><h3>Build week</h3><p>5–7 working days after content and access.</p></li>
+        <li style="--i:1"><b>04</b><h3>Review</h3><p>You test it on a real phone, we fix the gaps.</p></li>
+        <li style="--i:2"><b>05</b><h3>Handover</h3><p>Accounts, files and ownership in your name.</p></li>
+      </ol>
+      <div class="floor-shadow"></div>
+    </figure>
+
+    <!-- 07 · visit -->
+    <figure class="obj obj-visit" data-obj="visit">
+      <div class="plinth visit-plinth"><i></i><span></span></div>
+      <div class="visit-wrap">
+        <div class="pin-visual">
+          <div class="pin-rings"><i></i><i></i><i></i></div>
+          <svg class="pin" viewBox="0 0 120 160" aria-hidden="true">
+            <defs><linearGradient id="pinGold2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7dea8"/><stop offset=".55" stop-color="#d6a656"/><stop offset="1" stop-color="#996a24"/></linearGradient></defs>
+            <path d="M60 8c-28 0-50 22-50 50 0 38 50 94 50 94s50-56 50-94c0-28-22-50-50-50z" fill="url(#pinGold2)" stroke="#8f5f1e" stroke-width="2"/>
+            <circle cx="60" cy="58" r="19" fill="#fff" opacity=".92"/>
+            <circle cx="60" cy="58" r="9" fill="#d6a656"/>
+          </svg>
+        </div>
+        <div class="visit-card">
+          <small>FOUNDER-LED · RAIPUR</small>
+          <h3>Built in Raipur.<br>Always reachable.</h3>
+          <div class="visit-line"><i>WA</i><span>WhatsApp +91 78983 32744</span></div>
+          <div class="visit-line"><i>EN</i><span>English · हिन्दी</span></div>
+          <div class="visit-line"><i>24</i><span>Reply within 24 hours</span></div>
+        </div>
+      </div>
+      <div class="floor-shadow"></div>
+    </figure>
+
+    <!-- 08 · contact -->
+    <figure class="obj obj-contact" data-obj="contact">
+      <div class="contact-wrap">
+        <div class="send-orb">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M14 60L106 18L76 104L56 68L14 60Z" fill="none" stroke="#1a1408" stroke-width="4" stroke-linejoin="round"/><path d="M56 68L106 18" fill="none" stroke="#1a1408" stroke-width="4" stroke-linecap="round"/></svg>
+        </div>
+        <div class="chat-stack">
+          <div class="bubble them">Hi, I need a website for my clinic.</div>
+          <div class="bubble you">Free audit first — aapka Google profile aur site, dono dekh lenge.</div>
+          <div class="bubble them">That works. When can we start?</div>
+          <div class="bubble you gold">This week. Plan and price within 24 hours.</div>
+        </div>
+      </div>
+      <div class="floor-shadow"></div>
+    </figure>
+
+  </div>
+  <div class="scene-vignette"></div>
+</div>
+<div id="copy-veil" aria-hidden="true"></div>
+
+<!-- ============================================================ chrome -->
+<div class="ui" id="logo" role="img" aria-label="AVZERA Digital Solutions"><img src="assets/avzera-wordmark-theme.svg" alt="" width="134" height="21"></div>
+
+<div class="ui" id="nav">
+  <b id="section">01 / THE SEARCH</b><br>
+  <button id="sound" type="button" aria-pressed="true" aria-label="Sound is on">
+    <i aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></i>
+    <span>SOUND ON</span>
+  </button><br>
+  <button class="cta-start" type="button" data-open-lead>Start a project</button><br>
+  <a class="cta-start nav-dev" href="#work" data-goto="4">See live work</a>
+</div>
+
+<div class="ui" id="copy">
+  <div class="swap">
+    <small id="kicker">A STORY IN EIGHT ROOMS · 9:42 PM</small>
+    <h2 id="title">Someone is searching<br>for a business<br>like <em>yours.</em></h2>
+    <p id="body">Priya is getting married in Raipur. She searches ‘salon near me’ and gets five names. The ones that look alive get the call. AVZERA builds the Google profile, the fast website and the WhatsApp agent that make your business the easiest choice in Raipur, Bhilai and Durg.</p>
+    <span class="copy-actions">
+      <button class="cta-start big" id="copy-cta" type="button">Start with a free audit</button>
+      <a class="cta-wa" id="copy-wa" href="https://wa.me/917898332744?text=Hi%20AVZERA%2C%20I%20want%20a%20free%20audit%20for%20my%20business." target="_blank" rel="noopener" hidden>WhatsApp us</a>
+    </span>
+  </div>
+</div>
+
+<nav class="ui" id="rail" aria-label="Sections"></nav>
+
+<div class="ui" id="scroll-hint" aria-hidden="true"><i></i><span>SCROLL</span></div>
+<div class="ui" id="scrollcue">A COMPOSITE STORY · HOVER THE BRAIN</div>
+<div class="ui" id="progress" aria-hidden="true"><i></i><em>01</em></div>
+
+<footer id="footer">
+  <span>© 2026 AVZERA Digital Solutions · Shankar Nagar, Raipur</span>
+  <span class="foot-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="refund.html">Refunds</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
+  </span>
+</footer>
+
+<!-- ============================================================ lead sheet -->
+<div id="lead" aria-hidden="true">
+  <div class="lead-scrim" data-close-lead></div>
+  <div class="lead-card" role="dialog" aria-modal="true" aria-labelledby="lead-title">
+    <span class="lead-grab" aria-hidden="true"></span>
+    <button class="lead-x" type="button" data-close-lead aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <small>START A PROJECT</small>
+    <h2 id="lead-title">Tell us what you want to build.</h2>
+    <form id="lead-form" novalidate>
+      <fieldset>
+        <legend>What do you need?</legend>
+        <div class="chips" role="radiogroup" aria-label="Service">
+          <button class="chip" type="button" role="radio" aria-checked="true" data-service="Website">Website</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-service="Google profile">Google profile</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-service="WhatsApp / AI">WhatsApp / AI</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-service="All three">All three</button>
+        </div>
+      </fieldset>
+      <label class="field"><input id="lead-name" type="text" placeholder=" " autocomplete="name" maxlength="80" required><span>Your name</span><em>Please add your name.</em></label>
+      <label class="field"><input id="lead-biz" type="text" placeholder=" " autocomplete="organization" maxlength="90"><span>Business name (optional)</span></label>
+      <label class="field phone"><input id="lead-phone" type="tel" placeholder=" " autocomplete="tel" inputmode="numeric" maxlength="10" required><span>WhatsApp number</span><b>+91</b><em>Please add a 10-digit mobile number.</em></label>
+      <label class="field"><textarea id="lead-msg" rows="2" placeholder=" " maxlength="400"></textarea><span>Anything else? (optional)</span></label>
+      <label class="consent">
+        <input id="lead-consent" type="checkbox" required>
+        <span>I agree to be contacted on WhatsApp about this enquiry. I have read the <a href="privacy.html" target="_blank" rel="noopener">privacy notice</a>.</span>
+      </label>
+      <p class="lead-err" id="lead-err" role="alert" hidden></p>
+      <div class="lead-actions">
+        <button class="lead-send" type="submit">Send on WhatsApp <span>→</span></button>
+      </div>
+      <p class="lead-call">Prefer to talk? <a href="tel:+917898332744">Call +91 78983 32744</a> · <a href="mailto:hello@avzera.com">hello@avzera.com</a></p>
+      <p class="lead-note">Your message opens in WhatsApp. Nothing is stored on this site. We use your details only to reply to this enquiry. Consent can be withdrawn anytime — see Privacy.</p>
+    </form>
+  </div>
+</div>
+
+<div class="sr-only" aria-live="polite" id="live"></div>
+
+<!-- ============================================================ SEO fallback -->
+<main class="sr-only">
+  <h1>AVZERA Digital Solutions — websites, Google Business Profiles and 24/7 WhatsApp AI</h1>
+  <p>Founder-led digital studio in Shankar Nagar, Raipur, working with local businesses across India. 73%+ of local customers search on Google Maps first. Free audit. Clear scope. Delivery in 5–7 working days after content and access.</p>
+  <section><h2>Websites</h2><p>Fast, mobile-first websites built around WhatsApp, calls and enquiry forms. 0.38s-class edge delivery, 1-tap vCard save, page-weight budget checked before launch. Designed, built and launched end to end.</p></section>
+  <section><h2>Google Business Profile</h2><p>Profile claim, 4–6 category calibration, 750-character landmark bio, 5+ geotagged photos, services, hours, posts, review replies and a monthly performance snapshot. Zero Password Protocol — official Google Agency Manager invite, never your password.</p></section>
+  <section><h2>WhatsApp and AI automation</h2><p>WhatsApp and website agents that reply in seconds, qualify, book and hand over to a human with context. 24/7 Hindi/English voice answering, missed-call callback, Google Sheets CRM sync. No new SIM or hardware.</p></section>
+  <section><h2>Live work</h2><p>Hotel Vivanz Palace, Bhilai (live client site — 200-pax banquet engine), Liora House (live concept — 0.38s direct booking, bypasses 18–25% OTA commissions), SpeakMark (live AI product — 60-second voice rubric coach) and Mira (live AI skin guide — Hindi/English voice triage). Each card is labelled for what it is.</p></section>
+  <section><h2>Contact</h2><p>WhatsApp and call +91 78983 32744. Email hello@avzera.com. Privacy and grievance requests: grievance@avzera.com. Address: Avantibai Chowk, Bhilai, Chhattisgarh.</p></section>
+  <section><h2>Consent</h2><p>Enquiries open in WhatsApp only after you tick the consent box. Consent is unticked by default and can be withdrawn at any time.</p></section>
+</main>
+
+<div id="scroll-space" aria-hidden="true"></div>
+
+<noscript>
+  <style>
+    #loader { display: none !important; }
+    body.locked { overflow: auto !important; }
+    #scroll-space { display: none; }
+    #scene, #copy, #nav, #rail, #scroll-hint, #scrollcue, #progress, #footer { display: none !important; }
+  </style>
+</noscript>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/addons/"
+  }
+}
+</script>
+<script src="assets/app.js?v=20261119-6"></script>
+</body>
+</html>
